@@ -1,0 +1,13 @@
+#!/bin/bash
+
+function _frontend_ip {
+    kubectl get service frontend-external | awk '{print $4}'  | grep -v EXTERNAL-IP
+}
+
+_frontend_ip
+
+# TODO add to shop24.palladius.it
+# http://shop24.palladi.us/
+
+echo If Riccardo Try this: dns-setup-palladius.sh shop24.palladi.us $(_frontend_ip)
+echo See now: http://shop24.palladi.us/
