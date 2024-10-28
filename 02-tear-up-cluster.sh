@@ -21,14 +21,7 @@ set -u # fails at first undefined VAR (!!)
 # Add your code here
 ########################
 
-cd microservices-demo-copy/ &&
-    echodo kubectl apply -f ./release/kubernetes-manifests.yaml
-
-
-
-
-
-
+echodo kubectl apply -f microservices-demo/release/kubernetes-manifests.yaml
 
 
 
