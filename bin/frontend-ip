@@ -13,4 +13,5 @@ echo If Riccardo Try this: dns-setup-palladius.sh shop24.palladi.us $(_frontend_
 echo See now: http://shop24.palladi.us/
 
 echo If Riccardo Try this: dns-setup-palladius.sh shop2.palladi.us 35.202.15.43
-echo OR: 'cloud-dns-manage set  shop.palladi.us --ip 35.202.15.43 --force'
+# cloud-dns-manage unset  shop.palladi.us
+# cloud-dns-manage set  shop.palladi.us --ip 35.202.15.43
