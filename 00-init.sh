@@ -24,7 +24,10 @@ gcloud services enable \
     compute.googleapis.com \
     container.googleapis.com \
     logging.googleapis.com \
-    run.googleapis.com
+    run.googleapis.com \
+    monitoring.googleapis.com \
+    cloudtrace.googleapis.com \
+    cloudprofiler.googleapis.com \
 
 #gcloud services enable eventarc.googleapis.com
 # gcloud services enable \

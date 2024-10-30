@@ -21,15 +21,18 @@ set -u # fails at first undefined VAR (!!)
 # Add your code here
 ########################
 
+# Copied from here: https://github.com/GoogleCloudPlatform/microservices-demo/tree/main/kustomize/components/google-cloud-operations
 
+gcloud iam service-accounts list
 
-gcloud container clusters create-auto online-boutique \
-    --project=${PROJECT_ID} --region=${REGION} ||
-        echo probably already exists.
+gcloud iam service-accounts add-iam-policy-binding ${GSA_EMAIL} \
+  --role roles/iam.workloadIdentityUser \
+  --member "serviceAccount:${PROJECT_ID}.svc.id.goog[default/default]"
 
-gcloud container clusters get-credentials online-boutique --region europe-west1 --project cloud-ops-sandbox-2646743255
+kubectl annotate serviceaccount default \
+  iam.gke.io/gcp-service-account=${GSA_EMAIL}
 
-
+kubectl rollout restart deployment opentelemetrycollector
 
 ########################
 # /End of your code here

@@ -6,6 +6,15 @@ Missing instruction:
 * `gcloud components install gke-gcloud-auth-plugin`.
 * Missing locust -> exposing it manually => `service/loadgenerator-p5qk7`
 
+## Part 2: Ops part (Cloud Ops Sandbox)
+
+* Sandbox deprecated: https://github.com/googlecloudplatform/cloud-ops-sandbox
+* Link from https://github.com/googlecloudplatform/cloud-ops-sandbox to https://github.com/GoogleCloudPlatform/microservices-demo/tree/main/kustomize/components/google-cloud-operations - lets try this
+* Missing kustomize bash: `kustomize: command not found`
+* ok fixed.
+* kubectl apply -k .
+* launched all scripts in README - I forgot the kustomize part so the kubectl in workload identity fails. lets try again.
+
 ## ERROR
 
 ```

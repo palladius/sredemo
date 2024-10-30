@@ -21,6 +21,9 @@ set -u # fails at first undefined VAR (!!)
 # Add your code here
 ########################
 
+echo If it fails:
+echo gcloud container clusters get-credentials online-boutique --region europe-west1 --project cloud-ops-sandbox-2646743255
+
 echodo kubectl apply -f microservices-demo/release/kubernetes-manifests.yaml
 
 

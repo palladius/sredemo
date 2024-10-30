@@ -21,13 +21,25 @@ set -u # fails at first undefined VAR (!!)
 # Add your code here
 ########################
 
+# Copied from here: https://github.com/GoogleCloudPlatform/microservices-demo/tree/main/kustomize/components/google-cloud-operations
+
+gcloud iam service-accounts create ${GSA_NAME} ||
+    echo vabbe already exist
+
+gcloud projects add-iam-policy-binding ${PROJECT_ID} \
+  --member "serviceAccount:${GSA_NAME}@${PROJECT_ID}.iam.gserviceaccount.com" \
+  --role roles/cloudtrace.agent
+
+gcloud projects add-iam-policy-binding ${PROJECT_ID} \
+  --member "serviceAccount:${GSA_NAME}@${PROJECT_ID}.iam.gserviceaccount.com" \
+  --role roles/monitoring.metricWriter
+
+gcloud projects add-iam-policy-binding ${PROJECT_ID} \
+  --member "serviceAccount:${GSA_NAME}@${PROJECT_ID}.iam.gserviceaccount.com" \
+  --role roles/cloudprofiler.agent
 
 
-gcloud container clusters create-auto online-boutique \
-    --project=${PROJECT_ID} --region=${REGION} ||
-        echo probably already exists.
 
-gcloud container clusters get-credentials online-boutique --region europe-west1 --project cloud-ops-sandbox-2646743255
 
 
 
